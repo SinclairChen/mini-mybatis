@@ -110,8 +110,8 @@ public class MiniConfiguration {
         for (Method method : methods) {
             if (method.isAnnotationPresent(Select.class)) {
                 for (Annotation annotation : method.getDeclaredAnnotations()) {
-                    String statement = method.getDeclaringClass().getName() + "." + method.getName();
-                    mappedStatements.put(statement, ((Select) annotation).value());
+                    String statementId = method.getDeclaringClass().getName() + "." + method.getName();
+                    mappedStatements.put(statementId, ((Select) annotation).value());
                 }
             }
         }
@@ -191,5 +191,15 @@ public class MiniConfiguration {
         }
         return executor;
 
+    }
+
+    /**
+     * 判读是否有这个statementid存在的sql语句
+     * @param statementId
+     * @return
+     */
+    public boolean hashStatement(String statementId) {
+
+        return mappedStatements.containsKey(statementId);
     }
 }
