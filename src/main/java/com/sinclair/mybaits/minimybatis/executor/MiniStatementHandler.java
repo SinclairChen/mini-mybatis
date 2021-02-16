@@ -21,8 +21,6 @@ public class MiniStatementHandler {
 
         Connection conn = null;
         PreparedStatement preparedStatement = null;
-        Object result = null;
-
 
         try {
             conn = getConnection();

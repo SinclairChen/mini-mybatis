@@ -14,9 +14,9 @@ public class MiniDefaultSqlSession {
     private MiniExecutor executor;
 
 
-    public MiniDefaultSqlSession(MiniConfiguration configuration, MiniExecutor executor) {
+    public MiniDefaultSqlSession(MiniConfiguration configuration) {
         this.configuration = configuration;
-        this.executor = executor;
+        this.executor = configuration.newExecutor();
     }
 
     public MiniConfiguration getConfiguration() {
