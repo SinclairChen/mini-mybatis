@@ -63,8 +63,8 @@ public class MiniConfiguration {
                 e.printStackTrace();
             }
 
-            MAPPER_REGISTRY.addMapper(mapper, pojo);
-            mappedStatements.put(key, statement);
+            MAPPER_REGISTRY.addMapper(mapper, pojo);    //通过mapper接口和实体类构建代理类
+            mappedStatements.put(key, statement);   //将mapper接口和sql语句映射起来
         }
 
 
@@ -174,7 +174,8 @@ public class MiniConfiguration {
     }
 
     /**
-     * 创建一个执行器
+     * 创建一个执行器（如果开启了缓存，对其进行包装）
+     * 同时查看是否配置了拦截器，如果有拦截器，再进行包装
      * @return
      */
     public MiniExecutor newExecutor() {

@@ -48,6 +48,11 @@ public class MiniResultSetHandler {
     }
 
 
+    /**
+     * 将首字符转换成大写
+     * @param name
+     * @return
+     */
     private String firstWordCapital(String name) {
         String first = name.substring(0, 1);
         String tail = name.substring(1);

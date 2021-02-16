@@ -20,8 +20,10 @@ public class MiniMapperProxy implements InvocationHandler {
         this.object = object;
     }
 
+
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        //获取sql语句  进行查询
         String mapperInterface = method.getDeclaringClass().getName();
         String methodName = method.getName();
         String statementId = mapperInterface + "." + methodName;

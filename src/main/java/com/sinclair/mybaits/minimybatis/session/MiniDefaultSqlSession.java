@@ -16,6 +16,7 @@ public class MiniDefaultSqlSession {
 
     public MiniDefaultSqlSession(MiniConfiguration configuration) {
         this.configuration = configuration;
+        //创建执行器
         this.executor = configuration.newExecutor();
     }
 

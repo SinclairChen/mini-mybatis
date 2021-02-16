@@ -23,12 +23,19 @@ public class MiniStatementHandler {
         PreparedStatement preparedStatement = null;
 
         try {
+            //获取连接
             conn = getConnection();
             preparedStatement = conn.prepareStatement(statement);
+
+            //处理参数
             MiniParameterHandler parameterHandler = new MiniParameterHandler(preparedStatement);
             parameterHandler.setParameters(parameter);
+
+            //执行
             preparedStatement.execute();
 
+
+            //处理结果集
             return resultSetHandler.handle(preparedStatement.getResultSet(), pojo);
 
         } catch (SQLException throwables) {
